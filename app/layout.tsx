@@ -10,10 +10,13 @@ export default function RootLayout({
       <body>
         <ul>
           <li>
-            <Link href="/">ホームページ</Link>
+            <Link href="/">トップページ</Link>
           </li>
           <li>
             <Link href="/admin/login">管理者ログイン</Link>
+          </li>
+          <li>
+            <Link href="/user/login">ユーザーログイン</Link>
           </li>
         </ul>
         {children}
