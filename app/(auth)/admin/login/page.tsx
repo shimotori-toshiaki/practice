@@ -4,8 +4,10 @@ import { adminLoginAction } from "./actions";
 export default function AdminLoginPage(){
     return(
         <>
-            <h1>管理者ログイン</h1>
-            <LoginForm loginAction={adminLoginAction} />
+            <div className="w-full max-w-120 mx-auto">
+                <h1 className="text-center text-[28px] font-bold mb-7">管理者ログイン</h1>
+                <LoginForm loginAction={adminLoginAction} />
+            </div>
         </>
     )
 }

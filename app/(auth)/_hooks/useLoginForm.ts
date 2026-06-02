@@ -21,6 +21,7 @@ export const useLoginForm = ({ loginAction }: Props) => {
     defaultValues: {
       email: "admin@lh.sandbox",
       password: "pass",
+      remember: false,
     },
   });
 
@@ -29,6 +30,7 @@ export const useLoginForm = ({ loginAction }: Props) => {
 
     formData.append("email", values.email);
     formData.append("password", values.password);
+    formData.append("remember" , String(values.remember));
 
     startTransition(() => {
       loginAction(formData);
