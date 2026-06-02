@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js EC App Router
 
-## Getting Started
+## 概要
 
-First, run the development server:
+Next.js App Router を使用して作成したECサイトです。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+一般ユーザーと管理者でログイン機能を分け、認証後に取得したtokenをHttpOnly Cookieに保存しています。
+Cookieの状態に応じてユーザー・管理者・未ログイン状態を判定し、Headerの表示メニューを切り替える構成にしています。
+ログインフォームには React Hook Form と Zod を使用し、Server Actions と連携した認証処理を実装しています。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 使用技術
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- React Hook Form
+- Zod
+- Server Actions
+- Cookie認証
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 主な機能
 
-## Learn More
+### ユーザー側
 
-To learn more about Next.js, take a look at the following resources:
+- ユーザーログイン
+- ユーザーHeader
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 管理者側
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 管理者ログイン
+- 管理者Header
 
-## Deploy on Vercel
+## 実装ポイント
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- App Router を使用したルーティング設計
+- Server Actions を使用したログイン処理
+- HttpOnly Cookie によるtoken管理
+- user-token / admin-token による認証状態の切り分け
+- React Hook Form + Zod によるフォームバリデーション
+- Headerメニューをroleごとに切り替え
+- navItems.ts によるナビゲーションデータの分離
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ディレクトリ構成
+
+app
+├── _components
+│   └── header
+│       ├── AdminHeader.tsx
+│       ├── GuestHeader.tsx
+│       ├── Header.tsx
+│       ├── HeaderNav.tsx
+│       ├── LoginMenu.tsx
+│       ├── navItems.ts
+│       └── UserHeader.tsx
+│
+└── (auth)
+    ├── _components
+    │   └── LoginForm.tsx
+    │
+    ├── _hooks
+    │   └── useLoginForm.ts
+    │
+    ├── _schemas
+    │   └── loginSchema.ts
+    │
+    ├── admin
+    │   └── login
+    │       ├── actions.ts
+    │       └── page.tsx
+    │
+    └── user
+        └── login
+            ├── actions.ts
+            └── page.tsx
