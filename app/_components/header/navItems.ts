@@ -23,10 +23,6 @@ export const userNavItems: NavItem[] = [
     href: "/cart",
     label: "カート",
   },
-  {
-    href: "/user/logout",
-    label: "ログアウト",
-  },
 ];
 
 export const adminNavItems: NavItem[] = [
@@ -37,9 +33,5 @@ export const adminNavItems: NavItem[] = [
   {
     href: "/admin/products/new",
     label: "商品登録",
-  },
-  {
-    href: "/admin/logout",
-    label: "ログアウト",
   },
 ];

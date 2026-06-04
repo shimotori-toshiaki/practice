@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { HeaderNav } from "./HeaderNav";
+import { LogoutButton } from "../logout/LogoutButton";
 import { adminNavItems } from "./navItems";
 
 export const AdminHeader = async () => {  
@@ -12,7 +13,10 @@ export const AdminHeader = async () => {
             <Link href="/">管理者ヘッダー</Link>
           </h1>
         </div>
-        <HeaderNav items={adminNavItems} />
+        <div className="flex">
+          <HeaderNav items={adminNavItems} />
+          <LogoutButton />
+        </div>
       </header>
     </>
   );
