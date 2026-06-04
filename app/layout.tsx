@@ -1,4 +1,5 @@
-import Link from "next/link";
+import "./globals.css";
+import { Header } from "./_components/header/Header";
 
 export default function RootLayout({
   children,
@@ -8,15 +9,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <ul>
-          <li>
-            <Link href="/">ホームページ</Link>
-          </li>
-          <li>
-            <Link href="/admin/login">管理者ログイン</Link>
-          </li>
-        </ul>
-        {children}
+        <div className="w-full max-w-300 mx-auto">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );
